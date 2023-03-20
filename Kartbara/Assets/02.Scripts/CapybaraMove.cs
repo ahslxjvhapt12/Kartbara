@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,19 +9,26 @@ public class CapybaraMove : MonoBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] private float rotateSpeed = 10;
 
+    private float accelerator = 0;
+
     private Rigidbody _rigid = null;
 
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody>();
-        Debug.Log(Mathf.Repeat(10,3));
     }
 
     private void FixedUpdate()
     {
-
-        _rigid.velocity = (transform.forward * speed) + Vector3.up * _rigid.velocity.y; //new Vector3(_rigid.velocity.x, _rigid.velocity.y, speed);//-transform.up * speed;
+        Move();
         Rotate();
+    }
+
+
+    private void Move()
+    {
+        _rigid.velocity = (transform.forward * speed) - Vector3.up * MathF.Abs(_rigid.velocity.y);
+        //new Vector3(_rigid.velocity.x, _rigid.velocity.y, speed); //-transform.up * speed;
     }
 
     private void Rotate()
