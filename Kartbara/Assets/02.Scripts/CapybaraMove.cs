@@ -21,14 +21,13 @@ public class CapybaraMove : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        Rotate();
+        //Rotate();
     }
 
 
     private void Move()
     {
-        _rigid.velocity = (transform.forward * speed) - Vector3.up * MathF.Abs(_rigid.velocity.y);
-        //new Vector3(_rigid.velocity.x, _rigid.velocity.y, speed); //-transform.up * speed;
+
     }
 
     private void Rotate()
