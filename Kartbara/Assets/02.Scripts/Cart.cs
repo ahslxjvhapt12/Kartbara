@@ -31,10 +31,16 @@ public class Cart : MonoBehaviour
     {
         RaycastHit hit;
 
-        Physics.Raycast(rayPos.transform.position, -transform.up, out hit, 1);
+        Physics.Raycast(rayPos.transform.position, -transform.up, out hit, 1f);
+        Debug.DrawRay(rayPos.transform.position, -transform.up * 0.4f, Color.red);
+
+        Transform hitObj = hit.transform;
 
         float h = Input.GetAxisRaw("Horizontal");
-        transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
+        Debug.Log(hitObj);
+        
+        if (hitObj != null) transform.rotation = Quaternion.Euler(hitObj.rotation.x, h * Time.deltaTime * rotateSpeed, hitObj.rotation.z) * transform.rotation;
+        else transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
         // 현재 캐릭터가 땅에 있는가?
         if (controller.isGrounded)
         {
