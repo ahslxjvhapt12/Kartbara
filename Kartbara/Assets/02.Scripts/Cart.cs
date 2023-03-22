@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class Cart : MonoBehaviour
     private float jumpSpeed;  // 캐릭터 점프 힘.
     private float gravity;    // 캐릭터에게 작용하는 중력.
     private float rotateSpeed = 50;
+
+    public LayerMask checkRay;
+    [SerializeField] private GameObject rayPos;
 
     private CharacterController controller; // 현재 캐릭터가 가지고있는 캐릭터 컨트롤러 콜라이더.
     private Vector3 MoveDir;                // 캐릭터의 움직이는 방향.
@@ -25,6 +29,9 @@ public class Cart : MonoBehaviour
 
     void Update()
     {
+        RaycastHit hit;
+
+        Physics.Raycast(rayPos.transform.position, -transform.up, out hit, 1);
 
         float h = Input.GetAxisRaw("Horizontal");
         transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
@@ -45,4 +52,3 @@ public class Cart : MonoBehaviour
         controller.Move(MoveDir * Time.deltaTime);
     }
 }
-
