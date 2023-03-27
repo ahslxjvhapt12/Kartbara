@@ -38,9 +38,10 @@ public class Cart : MonoBehaviour
 
         float h = Input.GetAxisRaw("Horizontal");
         Debug.Log(hitObj);
-        
-        if (hitObj != null) transform.rotation = Quaternion.Euler(hitObj.rotation.x, h * Time.deltaTime * rotateSpeed, hitObj.rotation.z) * transform.rotation;
-        else transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
+
+        //if (hitObj != null) transform.rotation = Quaternion.Euler(hitObj.rotation.x, h * Time.deltaTime * rotateSpeed, hitObj.rotation.z) * transform.rotation;
+        //else transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
+        transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
         // 현재 캐릭터가 땅에 있는가?
         if (controller.isGrounded)
         {
