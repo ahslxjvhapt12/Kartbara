@@ -38,6 +38,10 @@ public class Cart : MonoBehaviour
 
         float h = Input.GetAxisRaw("Horizontal");
         Debug.Log(hitObj);
+        
+        // 아 거지같네 진짜
+        //transform.rotation = hit.transform.rotation;
+
 
         //if (hitObj != null) transform.rotation = Quaternion.Euler(hitObj.rotation.x, h * Time.deltaTime * rotateSpeed, hitObj.rotation.z) * transform.rotation;
         //else transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
