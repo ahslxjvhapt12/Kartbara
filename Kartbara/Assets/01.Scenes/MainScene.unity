@@ -470,6 +470,7 @@ GameObject:
   - component: {fileID: 322211879}
   - component: {fileID: 322211881}
   - component: {fileID: 322211880}
+  - component: {fileID: 322211882}
   m_Layer: 0
   m_Name: Cart(ver2)
   m_TagString: Untagged
@@ -523,6 +524,66 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &322211882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322211876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef17c8863a29eb248b4e480818d2cb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+    capsule: {fileID: 0}
+    rBody: {fileID: 0}
+  _checkOptions:
+    groundLayerMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    forwardCheckDistance: 0.1
+    groundCheckDistance: 2
+    groundCheckThreshold: 0.01
+  _moveOptions:
+    speed: 5
+    runningCoef: 1.5
+    jumpForce: 4.2
+    jumpCooldown: 0.6
+    maxJumpCount: 1
+    maxSlopeAngle: 50
+    slopeAccel: 1
+    gravity: -9.81
+  _currentStates:
+    isMoving: 0
+    isRunning: 0
+    isGrounded: 0
+    isOnSteepSlope: 0
+    isJumpTriggered: 0
+    isJumping: 0
+    isForwardBlocked: 0
+    isOutOfControl: 0
+  _currentValues:
+    worldMoveDir: {x: 0, y: 0, z: 0}
+    groundNormal: {x: 0, y: 0, z: 0}
+    groundCross: {x: 0, y: 0, z: 0}
+    horizontalVelocity: {x: 0, y: 0, z: 0}
+    jumpCooldown: 0
+    jumpCount: 0
+    outOfControllDuration: 0
+    groundDistance: 0
+    groundSlopeAngle: 0
+    groundVerticalSlopeAngle: 0
+    forwardSlopeAngle: 0
+    slopeAccel: 0
+    gravity: 0
+  _debugOn: 0
+  _debugIndex: 0
+  _showGizmos: 1
+  _gizmoRadius: 0.05
+  _showGUI: 1
+  _guiTextSize: 28
 --- !u!4 &434328833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7790624626158954556, guid: b8c83e1f89fb1f343b74be7bb3f38303, type: 3}
@@ -820,7 +881,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612889288}
-  m_LocalRotation: {x: 0.34042525, y: 0.00000002288009, z: -0.0000000082837355, w: 0.9402717}
+  m_LocalRotation: {x: 0.34042525, y: -0.000000022880096, z: 0.000000008283737, w: 0.9402717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
